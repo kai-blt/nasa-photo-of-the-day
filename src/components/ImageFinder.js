@@ -4,10 +4,11 @@ import axios from 'axios'
 import { BASE_URL, API_KEY} from '../constants/constants'
 
 export default function ImageFinder(props) {
-    //Store state of user input and axios calls
+    //Store state of user selected date and axios calls
     const [search, setSearch] = useState(null);
     const [searchData, setSearchData] = useState(null);
 
+    //Only fetch image data if the date is selected
     useEffect(()=>{
         const fetchImageData = () => {
             axios.get(`${BASE_URL}?date=${search}${API_KEY}`)

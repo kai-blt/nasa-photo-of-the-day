@@ -1,4 +1,7 @@
 import React from 'react'
+import Description from './Description'
+import Image from './Image'
+import Title from './Title'
 import './ImageCard.css'
 
 
@@ -8,18 +11,9 @@ export default function ImageFinder(props) {
     return (
         <>
             <div className="imageCardContainer">
-                <div>
-                    <h1>{searchData.title}</h1>
-                    <h3>{searchData.date}</h3>
-                </div>
-                <div>
-                    <img src={searchData.hdurl} alt={searchData.title}></img>
-                </div>
-                <div>
-                    <p>                
-                        {searchData.explanation}
-                    </p>
-                </div>
+                <Title title={searchData.title} date={searchData.date} />
+                <Image src={searchData.hdurl} alt={searchData.title} />               
+                <Description explanationData={searchData.explanation} />
             </div>           
         </>
     )
