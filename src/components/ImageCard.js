@@ -9,14 +9,14 @@ import './ImageCard.css'
 It is passed all of the API data from ImageFinder component when a user selects a date. 
 */
 export default function ImageFinder(props) {
-    const { searchData } = props;
-    console.log(searchData)
+    const { podData } = props;
+    console.log(podData)
     return (
         <>
             <div className="imageCardContainer">
-                <Title title={searchData.title} date={searchData.date} />
-                <Image src={searchData.hdurl} alt={searchData.title} />               
-                <Description explanationData={searchData.explanation} />
+                <Title title={podData.title} date={podData.date} />
+                <Image src={podData.url} alt={podData.title} />               
+                <Description explanationData={podData.explanation} />
             </div>           
         </>
     )
