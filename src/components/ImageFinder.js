@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import Image from './Image'
+import Image from './ImageCard'
 import axios from 'axios'
-import { BASE_URL} from '../constants/constants'
+import { BASE_URL, API_KEY} from '../constants/constants'
 
 export default function ImageFinder(props) {
     //Store state of user input and axios calls
@@ -9,12 +9,16 @@ export default function ImageFinder(props) {
     const [searchData, setSearchData] = useState(null);
 
     useEffect(()=>{
-        const fetchImageData = (search) => {
-            axios.get(`${BASE_URL}?date=${search}&api_key=DEMO_KEY`)
-                .then(res => console.log(res.data))
-                .catch(err => console.log('error'))
+        const fetchImageData = () => {
+            axios.get(`${BASE_URL}?date=${search}${API_KEY}`)
+                .then(res => {
+                    console.log('***SUCCESS*** Sending Image Data to Image Component')
+                    setSearchData(res.data)
+                    console.log(res.data)
+                })
+                .catch(err => console.log(`***WARNING*** ${err}`))
         }
-        fetchImageData(search)
+        fetchImageData();
     }, [search])
 
 
