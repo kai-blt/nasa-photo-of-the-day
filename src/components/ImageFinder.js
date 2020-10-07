@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ImageCard from './ImageCard'
+import RoverCard from './RoverCard'
 import axios from 'axios'
 import { POD_URL, ROVER_URL, API_KEY} from '../constants/constants'
 import './ImageFinder.css'
@@ -28,17 +29,18 @@ export default function ImageFinder(props) {
         const fetchRoverData = () => {
             axios.get(`${ROVER_URL}?earth_date=${searchDate}${API_KEY}`)
                 .then(res => {
-                    console.log('***SUCCESS*** Sending Image Data to Image Component')                    
-                    console.log(res.data)
-                    setPodData(res.data)
+                    console.log('***SUCCESS*** Sending Image Data to Rover Component')                    
+                    console.log(res.data.photos)
+                    setRoverData(res.data.photos)
                 })
                 .catch(err => {
                     /*Set searchDate data to null so that No Images Found is displayed
                     and the card will dissapear*/
-                    setPodData(null);
+                    setRoverData(null);
                 })
         }
         fetchImageData();
+        fetchRoverData();
     }, [searchDate])
 
 
@@ -50,7 +52,8 @@ export default function ImageFinder(props) {
             </div>
             <div className="container">
                 {/*Displays Image only if Image data returned*/}
-                {podData && <><ImageCard podData={podData}/> <ImageCard podData={podData} /></>}
+                {podData && <ImageCard data={podData}/>}
+                {roverData &&  <RoverCard data={roverData} />}
                 {podData === null ? <div>No Images Found</div> : ''}
             </div>              
         </div>
