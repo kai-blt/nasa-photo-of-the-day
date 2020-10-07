@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Image from './ImageCard'
+import ImageCard from './ImageCard'
 import axios from 'axios'
 import { BASE_URL, API_KEY} from '../constants/constants'
 
@@ -35,7 +35,7 @@ export default function ImageFinder(props) {
             </div>
             <div>
                 {/*Displays Image only if Image data returned*/}
-                {searchData && <Image searchData={searchData} />}
+                {searchData && <ImageCard searchData={searchData} />}
                 {searchData === null ? <div>No Images Found</div> : ''}
             </div>              
         </div>
