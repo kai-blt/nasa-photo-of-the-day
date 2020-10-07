@@ -1,0 +1,24 @@
+/* CSS For ImageCard */
+
+.imageCardContainer {
+    width: 50%;
+    margin: 5% auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 10px 20px #2e2e2e;    
+    background-color: #4e4e4e;
+    color: #fff;
+
+}
+
+.imageCardContainer img {
+    max-width: 100%;
+}
+
+
+.imageCardContainer p {
+    margin: 5%;
+    letter-spacing: 1px;
+    line-height: 1.6rem;
+    font-weight: 100;
+}

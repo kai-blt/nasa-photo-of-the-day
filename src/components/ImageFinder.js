@@ -16,7 +16,9 @@ export default function ImageFinder(props) {
                     setSearchData(res.data)
                     console.log(res.data)
                 })
-                .catch(err => console.log(`***WARNING*** ${err}`))
+                .catch(err => {
+                    setSearchData(null);
+                })
         }
         fetchImageData();
     }, [search])
@@ -30,7 +32,8 @@ export default function ImageFinder(props) {
             </div>
             <div>
                 {/*Displays Image only if Image data returned*/}
-                {searchData && <Image imgUrl={searchData}/>}
+                {searchData && <Image searchData={searchData} />}
+                {searchData === null ? <div>No Images Found</div> : 'none'}
             </div>              
         </div>
     )
