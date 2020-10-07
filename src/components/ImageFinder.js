@@ -33,7 +33,7 @@ export default function ImageFinder(props) {
             <div>
                 {/*Displays Image only if Image data returned*/}
                 {searchData && <Image searchData={searchData} />}
-                {searchData === null ? <div>No Images Found</div> : 'none'}
+                {searchData === null ? <div>No Images Found</div> : ''}
             </div>              
         </div>
     )
