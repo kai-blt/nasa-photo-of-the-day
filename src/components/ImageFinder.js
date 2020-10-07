@@ -13,11 +13,13 @@ export default function ImageFinder(props) {
         const fetchImageData = () => {
             axios.get(`${BASE_URL}?date=${search}${API_KEY}`)
                 .then(res => {
-                    console.log('***SUCCESS*** Sending Image Data to Image Component')
-                    setSearchData(res.data)
+                    console.log('***SUCCESS*** Sending Image Data to Image Component')                    
                     console.log(res.data)
+                    setSearchData(res.data)
                 })
                 .catch(err => {
+                    /*Set search data to null so that No Images Found is displayed
+                    and the card will dissapear*/
                     setSearchData(null);
                 })
         }
