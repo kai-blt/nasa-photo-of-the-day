@@ -69,7 +69,7 @@ export default function ImageFinder(props) {
             <CardContainer>
                 {/*Displays Image only if Image data returned*/}
                 {podData && <ImageCard data={podData}/>}
-                {roverData &&  <RoverCard data={roverData} />}
+                {roverData &&  <RoverCard data={roverData} date={searchDate} />}
             </CardContainer>             
         </div>
     )

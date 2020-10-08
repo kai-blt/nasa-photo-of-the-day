@@ -34,11 +34,11 @@ const RoverCardImage = styled.img`
 
 
 export default function RoverCard(props) {
-    const { data } = props;
+    const { data, date} = props;
     return (
         <>
             <RoverCardContainer>
-                <div><h2>Rover Camera</h2><span>{data[0].earth_date}</span></div>                
+                <div><h2>Rover Camera</h2><span>{date}</span></div>                
                 {data.map(photo => {
                     return (
                         <>
