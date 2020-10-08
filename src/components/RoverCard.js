@@ -1,11 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 /*RoverCard takes data from the Mars Rover
 Photos API and appends to DOM.*/
 
 
+const kf = keyframes`
+    100%{
+        opacity: 1;
+    }
+`;
+
 const RoverCardContainer = styled.div`
+    opacity: 0;
+    animation: ${kf} 0.75s ease-in-out forwards;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -19,6 +27,12 @@ const RoverCardContainer = styled.div`
     font-weight: 100;
     font-size: .5rem;
     color: #fff;
+
+    &:hover {
+        box-shadow: 5px 10px 40px #2F4F4F; 
+        transition: 0.75s ease-in-out;   
+    }
+    transition: 0.75s ease-in-out;   
 `;
 
 const RoverImageContainer = styled.div`
@@ -30,6 +44,10 @@ const RoverCardImage = styled.img`
     max-width: 100%;
     padding: 5%;
 `;
+
+
+
+
 
 
 
