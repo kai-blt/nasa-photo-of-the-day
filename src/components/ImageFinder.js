@@ -6,9 +6,6 @@ import { POD_URL, ROVER_URL, API_KEY} from '../constants/constants'
 import styled from 'styled-components'
 
 
-
-
-
 const CardContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
@@ -22,7 +19,9 @@ const CardContainer = styled.div`
     };
 `
 
-
+const ErrorMessage = styled.div`
+    color: red;
+`;
 
 
 export default function ImageFinder(props) {
@@ -30,6 +29,34 @@ export default function ImageFinder(props) {
     const [searchDate, setSearchDate] = useState(null);
     const [podData, setPodData] = useState(null);
     const [roverData, setRoverData] = useState(null);
+    const [needsNewDate, setNeedsNewDate] = useState(false);
+
+    function checkDate(event) {
+        //Get current month and year
+        const currDate = new Date();
+        const year = currDate.getFullYear();
+        const month = (currDate.getMonth() + 1 < 10) ? (`0${currDate.getMonth() + 1}`) : (currDate.getMonth() + 1);    
+        const date = (currDate.getDate() < 10) ? (`0${currDate.getDate()}`) : (currDate.getDate());  
+        
+                    
+        //Get user selected month and year
+        const dateSplit = event.target.value.split('-');
+        const selectedYear = dateSplit[0];
+        const selectedMonth = dateSplit[1];
+        const selectedDay = dateSplit[2];
+        
+
+        //If either the year, month or date selected is greater than 
+        if ((parseInt(selectedYear) > parseInt(year)) || (parseInt(selectedMonth) >= parseInt(month)) && (parseInt(selectedDay)) > parseInt(date)){
+            setNeedsNewDate(true)
+            setPodData(null);
+            setRoverData(null);
+        } else {
+            setSearchDate(event.target.value)
+            setNeedsNewDate(false);
+        } 
+    }
+
 
     //Only fetch image data if the date is selected
     useEffect(()=>{
@@ -68,12 +95,13 @@ export default function ImageFinder(props) {
         <div>
             <h2>Please Select a Date:</h2>
             <div>
-                <input type="date" id="day" onChange={(event) => setSearchDate(event.target.value)}></input>
+                <input type="date" id="day" onChange={(event) => checkDate(event)}></input>
             </div>
             <CardContainer>
                 {/*Displays Image only if Image data returned*/}
                 {podData && <ImageCard data={podData}/>}
                 {roverData &&  <RoverCard data={roverData} date={searchDate} />}
+                {needsNewDate &&  <ErrorMessage>We cannot see the future! Please select a date in the past 😃</ErrorMessage>}
             </CardContainer>             
         </div>
     )
