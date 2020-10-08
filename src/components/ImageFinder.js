@@ -3,7 +3,23 @@ import ImageCard from './ImageCard'
 import RoverCard from './RoverCard'
 import axios from 'axios'
 import { POD_URL, ROVER_URL, API_KEY} from '../constants/constants'
-import './ImageFinder.css'
+import styled from 'styled-components'
+
+
+
+
+
+const CardContainer = styled.div`
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 80%;
+    padding: 5%;
+    margin: auto;
+`
+
+
+
 
 export default function ImageFinder(props) {
     //Store state of user selected date and axios calls
@@ -50,12 +66,11 @@ export default function ImageFinder(props) {
             <div>
                 <input type="date" id="day" onChange={(event) => setSearchDate(event.target.value)}></input>
             </div>
-            <div className="container">
+            <CardContainer>
                 {/*Displays Image only if Image data returned*/}
                 {podData && <ImageCard data={podData}/>}
                 {roverData &&  <RoverCard data={roverData} />}
-                {podData === null ? <div>No Images Found</div> : ''}
-            </div>              
+            </CardContainer>             
         </div>
     )
 }
