@@ -18,7 +18,7 @@ const RoverCardContainer = styled.div`
     flex-flow: row wrap;
     justify-content: space-around;
     align-content: space-around;
-    width: 40%;
+    width: 80%;
     margin: 5% auto;
     border: 1px solid #000;
     border-radius: 10px;

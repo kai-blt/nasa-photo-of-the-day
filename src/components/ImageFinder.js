@@ -102,7 +102,7 @@ export default function ImageFinder(props) {
                 {/*Displays Image only if Image data returned*/}
                 {podData && <ImageCard data={podData}/>}
                 {roverData &&  <RoverCard data={roverData} date={searchDate} />}
-                {needsNewDate &&  <ErrorMessage>We cannot see the future! Please select a date in the past 😃</ErrorMessage>}
+                {needsNewDate &&  <ErrorMessage>We cannot see into the future! Please select a date in the past 😃</ErrorMessage>}
             </CardContainer>             
         </div>
     )

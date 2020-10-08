@@ -14,7 +14,7 @@ const kf = keyframes`
 const ImageCardContainer = styled.div`
     opacity: 0;
     animation: ${kf} 0.75s ease-in-out forwards;
-    width: 40%;
+    width: 80%;
     margin: 5% auto;
     border: 1px solid #000;
     border-radius: 10px;
