@@ -24,6 +24,7 @@ const ErrorMessage = styled.div`
 `;
 
 
+
 export default function ImageFinder(props) {
     //Store state of user selected date and axios calls
     const [searchDate, setSearchDate] = useState(null);
