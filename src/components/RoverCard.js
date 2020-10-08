@@ -5,12 +5,15 @@ import styled, { keyframes } from 'styled-components'
 Photos API and appends to DOM.*/
 
 
+//Animations
 const kf = keyframes`
     100%{
         opacity: 1;
     }
 `;
 
+
+//Styled Components
 const RoverCardContainer = styled.div`
     opacity: 0;
     animation: ${kf} 0.75s ease-in-out forwards;

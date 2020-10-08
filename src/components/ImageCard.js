@@ -5,12 +5,14 @@ import Title from './Title'
 import styled, { keyframes } from 'styled-components'
 
 
+//Animations
 const kf = keyframes`
     100%{
         opacity: 1;
     }
 `;
 
+//Styled Components
 const ImageCardContainer = styled.div`
     opacity: 0;
     animation: ${kf} 0.75s ease-in-out forwards;

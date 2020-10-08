@@ -6,6 +6,7 @@ import { POD_URL, ROVER_URL, API_KEY} from '../constants/constants'
 import styled from 'styled-components'
 
 
+//Styled Components
 const CardContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
@@ -64,26 +65,24 @@ export default function ImageFinder(props) {
         const fetchImageData = () => {
             axios.get(`${POD_URL}?date=${searchDate}${API_KEY}`)
                 .then(res => {
-                    console.log('***SUCCESS*** Sending Image Data to Image Component')                    
-                    console.log(res.data)
+                    // console.log('***SUCCESS*** Sending Image Data to Image Component')                    
+                    // console.log(res.data)
                     setPodData(res.data)
                 })
                 .catch(err => {
-                    /*Set searchDate data to null so that No Images Found is displayed
-                    and the card will dissapear*/
+                    /*Set poData to null if error so that the card will dissapear*/
                     setPodData(null);
                 })
         }
         const fetchRoverData = () => {
             axios.get(`${ROVER_URL}?earth_date=${searchDate}${API_KEY}`)
                 .then(res => {
-                    console.log('***SUCCESS*** Sending Image Data to Rover Component')                    
-                    console.log(res.data.photos)
+                    // console.log('***SUCCESS*** Sending Image Data to Rover Component')                    
+                    // console.log(res.data.photos)
                     setRoverData(res.data.photos)
                 })
                 .catch(err => {
-                    /*Set searchDate data to null so that No Images Found is displayed
-                    and the card will dissapear*/
+                    /*Set roverData to null if error so that the card will dissapear*/
                     setRoverData(null);
                 })
         }

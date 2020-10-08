@@ -2,6 +2,8 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import styled from 'styled-components'
 
+
+//Styled Components
 const ImageContainer = styled.div`
     max-width: 100%;
 

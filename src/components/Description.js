@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+//Styled Components
 const ImageExplanation = styled.div`
     font-weight: 100;
     font-size: 1.2rem;
