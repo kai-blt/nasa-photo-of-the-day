@@ -16,6 +16,10 @@ const CardContainer = styled.div`
     width: 80%;
     padding: 5%;
     margin: auto;
+
+    @media (max-width: 500px) {
+        max-width: 100%;
+    };
 `
 
 

@@ -26,7 +26,12 @@ const ImageCardContainer = styled.div`
         box-shadow: 5px 10px 40px #2F4F4F; 
         transition: 0.75s ease-in-out;   
     }
-    transition: 0.75s ease-in-out;   
+    transition: 0.75s ease-in-out;
+
+    @media (max-width: 500px) {
+        width: 100%;
+        margin: 0%;
+    };   
 `;
 
 

@@ -31,8 +31,13 @@ const RoverCardContainer = styled.div`
     &:hover {
         box-shadow: 5px 10px 40px #2F4F4F; 
         transition: 0.75s ease-in-out;   
-    }
+    }   
     transition: 0.75s ease-in-out;   
+
+    @media (max-width: 500px) {
+        width: 100%;
+        margin: 0%;
+    };   
 `;
 
 const RoverImageContainer = styled.div`
@@ -59,12 +64,10 @@ export default function RoverCard(props) {
                 <div><h2>Rover Camera</h2><span>{date}</span></div>                
                 {data.map(photo => {
                     return (
-                        <>
-                            <RoverImageContainer>
-                                <h3>{photo.camera.full_name}</h3>
-                                <RoverCardImage key={photo.id} src={photo.img_src}/>
-                            </RoverImageContainer>
-                        </>
+                        <RoverImageContainer>
+                            <h3>{photo.camera.full_name}</h3>
+                            <RoverCardImage key={photo.id} src={photo.img_src}/>
+                        </RoverImageContainer>
                     )
                 })}                
             </RoverCardContainer>        
