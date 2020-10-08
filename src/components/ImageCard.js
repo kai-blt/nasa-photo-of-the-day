@@ -14,7 +14,7 @@ export default function ImageFinder(props) {
         <>
             <div className="imageCardContainer">
                 <Title title={data.title} date={data.date} />
-                <Image src={data.url} alt={data.title} />               
+                <Image src={data.url} alt={data.title} media_type={data.media_type}/>               
                 <Description explanationData={data.explanation} />
             </div>           
         </>
